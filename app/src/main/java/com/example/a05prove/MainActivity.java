@@ -9,17 +9,19 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
     public static final String EXTRA_MESSAGE = "com.example.a05prove.MESSAGE";
     public static final String Tag = "MainActivity";
 
-    private EditText script;
+    private TextView script;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        script = findViewById(R.id.script);
 
     }
 
@@ -29,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
 
         SharedPreferences sp = getSharedPreferences("Data", Context.MODE_PRIVATE);
 
-        nameValue = sp.getString("Name", "?");
+        nameValue = sp.getString("Scripture", " ");
 
         script.setText(nameValue);
 

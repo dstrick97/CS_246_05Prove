@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class DisplayScripture extends AppCompatActivity {
     public static final String Tag = "DisplayScripture";
@@ -29,9 +30,9 @@ public class DisplayScripture extends AppCompatActivity {
 
     public void save(View view) {
 
-        String nameValue = getIntent().getStringExtra((MainActivity.EXTRA_MESSAGE));
+        String nameValue = getIntent().getStringExtra(MainActivity.EXTRA_MESSAGE);
 
-        SharedPreferences sp = getSharedPreferences("Scripture", Context.MODE_PRIVATE);
+        SharedPreferences sp = getSharedPreferences("Data", Context.MODE_PRIVATE);
 
         SharedPreferences.Editor editor = sp.edit();
 
@@ -39,8 +40,12 @@ public class DisplayScripture extends AppCompatActivity {
 
         editor.commit();
 
+        Toast.makeText(this, "Scripture Saved!", Toast.LENGTH_SHORT).show();
         Log.d("sptest","Saved Name: "+nameValue);
 
+
     }
+
+
 
 }
